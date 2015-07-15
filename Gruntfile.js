@@ -1,4 +1,4 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
     "use strict";
 
@@ -51,16 +51,14 @@ module.exports = function (grunt) {
         },
         copy: {
             max: {
-                files: [
-                    {
-                        expand: true,
-                        flatten: true,
-                        src: [
-                            "lib/emoji.js"
-                        ],
-                        dest: "dist/"
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: [
+                        "lib/emoji.js"
+                    ],
+                    dest: "dist/"
+                }]
             }
         },
         uglify: {
@@ -88,28 +86,26 @@ module.exports = function (grunt) {
                 options: {
                     archive: "dist/angular-emoji.zip"
                 },
-                files: [
-                    {
-                        src: [
-                            "dist/*.js",
-                            "dist/*.css",
-                            "dist/*.png",
-                            "LICENSE",
-                            "bower.json"
-                        ]
-                    }
-                ]
+                files: [{
+                    src: [
+                        "dist/*.js",
+                        "dist/*.css",
+                        "dist/*.png",
+                        "LICENSE",
+                        "bower.json"
+                    ]
+                }]
             }
         },
         montage: {
-            "21x21": {
+            "25x25": {
                 files: {
                     dist: [
                         "res/emoji/*.png"
                     ]
                 },
                 options: {
-                    size: 21,
+                    size: 25,
                     prefix: ".emoji",
                     outputImage: "emoji.png",
                     outputStylesheet: "emoji.css",
@@ -126,7 +122,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask("bower", "Generate a bower.json file and publish built assets to Bower", function () {
+    grunt.registerTask("bower", "Generate a bower.json file and publish built assets to Bower", function() {
         grunt.file.write("bower.json", JSON.stringify({
             name: "angular-emoji",
             version: grunt.config("pkg.version"),
